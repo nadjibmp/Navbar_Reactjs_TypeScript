@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { LogoContainer, NavLink, Wrapper, MobileNav } from './Navbar.styled';
-
+import { Link } from '../../Utils/CommonTypes';
 
 interface Props {
-    links: String[],
+    links: Link[],
     logo: string
 }
 const Navbar: React.FC<Props> = ({ links, logo }) => {
@@ -27,7 +27,7 @@ const Navbar: React.FC<Props> = ({ links, logo }) => {
                                 links.map((link, i) => {
                                     return (
                                         <li key={i} className="nav__list_item">
-                                            <NavLink href="*"> {link}</NavLink>
+                                            <NavLink href={link.link}> {link.alias}</NavLink>
                                         </li>
                                     )
                                 })
@@ -47,7 +47,7 @@ const Navbar: React.FC<Props> = ({ links, logo }) => {
                         links.map((link, i) => {
                             return (
                                 <li key={i} className="nav__list_item">
-                                    <NavLink href="*"> {link}</NavLink>
+                                    <NavLink href={link.link}> {link.alias}</NavLink>
                                 </li>
                             )
                         })
